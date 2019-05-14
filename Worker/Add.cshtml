@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+}
+
+<div>
+    <form method="post" action="worker">
+        <div>
+            <label>Форма для заполнения</label>
+        </div>
+        <div>
+            <label>
+                Имя
+                <input type="text" name="name" value="@ViewBag.FioWorker" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Дата принятия
+                <input type="text" name="dateofemployment" value="@ViewBag.DateOfEmployment" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Должность
+                <select id="Select1" name="post" value="@ViewBag.Post">
+                    <option>Должность1</option>
+                    <option>Должность2</option>
+                    <option>Должность3</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <label>
+                Зарплата
+                <input type="text" name="salary" value="@ViewBag.Salary" />
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="submit" value="Отправить" />
+            </label>
+        </div>
+    </form>
+</div>
+

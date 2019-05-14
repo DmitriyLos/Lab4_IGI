@@ -1,0 +1,46 @@
+﻿@using Lab4.ViewModels
+@model CarsViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <div class="data-search">
+        @using (Html.BeginForm("Index", "Car", FormMethod.Post))
+        {
+        <fieldset>
+            Модель: @Html.TextBox("Model", Model.CarViewModel.Model)
+            Цвет: @Html.TextBox("Colour", Model.CarViewModel.Colour)
+            Номер: @Html.TextBox("StateNumber", Model.CarViewModel.StateNumber)
+            <input type="submit" value="Найти" />
+        </fieldset>
+        }
+    </div>
+    <div>
+       Автомобили
+        <table>
+            <tr>
+                <td>
+                    <a asp-controller="Service" asp-action="Index" asp-route-sortOrder="@ViewBag.ColourSort">
+                        Цвет
+                    </a>
+                </td>
+                <td>
+                    <a asp-controller="Service" asp-action="Index" asp-route-sortOrder="@ViewBag.ModelSort">
+                        Модель
+                    </a>
+                </td>
+            </tr>
+            @{
+                foreach (Car i in Model.PageViewModel)
+                {
+                    <tr>
+                        <td>@i.Model</td>
+                        <td>@i.Colour</td>
+                        <td>@i.StateNumber</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

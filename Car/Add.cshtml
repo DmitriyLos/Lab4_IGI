@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+}
+
+<div>
+    <form method="post" action="car">
+        <div>
+            <label>Форма для заполнения</label>
+        </div>
+        <div>
+            <label>
+                Модель
+                <input type="text" name="model" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Цвет
+                <select id="Select1" name="colour">
+                    <option>Цвет1</option>
+                    <option>Цвет2</option>
+                    <option>Цвет3</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <label>
+                Номер
+                <input type="text" name="statenumber" />
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="submit" value="Отправить" />
+            </label>
+        </div>
+    </form>
+</div>

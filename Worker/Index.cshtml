@@ -1,0 +1,54 @@
+﻿@using Lab4.ViewModels
+@model WorkersViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <div class="data-search">
+        @using (Html.BeginForm("Index", "Worker", FormMethod.Post))
+        {
+        <fieldset>
+            ФИО: @Html.TextBox("FioWorker", Model.WorkerViewModel.FioWorker)
+            <input type="submit" value="Найти" />
+        </fieldset>
+        }
+    </div>
+    <div>
+        Список сотрудников
+        <table>
+            <tr>
+                <th>ФИО</th>
+                <th>
+                    <a asp-controller="Worker" asp-action="Index" asp-route-sortOrder="@ViewBag.FioWorkerSort">
+                        Дата принятия
+                    </a>
+                </th>
+                <th>Дата увольнения</th>
+                <th>
+                    <a asp-controller="Worker" asp-action="Index" asp-route-sortOrder="@ViewBag.SalarySort">
+                        Зарплата
+                    </a>
+                </th>
+            </tr>
+            @foreach (Worker p in Model.PageViewModel)
+            {
+                <tr>
+                    <td>@p.FioWorker</td>
+                    <td>@p.DateOfEmployment</td>
+                    <td>@p.DateOfDismissal</td>
+                    <td>@p.Salary</td>
+                </tr>
+            }
+        </table>
+        <div>
+            <a asp-controller="Worker" asp-action="Index" asp-route-index="-1">
+                <<
+            </a>
+            @(Model.PageNumber+1)
+            <a asp-controller="Worker" asp-action="Index" asp-route-index="1">
+                >>
+            </a>
+        </div>
+    </div>
+</div>

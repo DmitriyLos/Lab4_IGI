@@ -1,0 +1,69 @@
+﻿@using Lab4.Models
+@model Lab4.ViewModels.HomeViewModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<div class="row">
+    <div>
+        <label>Автомобиль и Госномер</label>
+        <table>
+            @{
+                foreach (Car i in Model.Cars)
+                {
+                    <tr>
+                        <td>@i.Model</td>
+                        <td>@i.Power</td>
+                       
+                        <td>@i.StateNumber</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <div>
+        <label>Рабочий и дата найма</label>
+        <table>
+            @{
+                foreach (Worker i in Model.Workers)
+                {
+                    <tr>
+                        <td>@i.FioWorker</td>
+                    
+                        <td>@i.DateOfEmployment</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <div>
+        <label>Заказ и дата поступления</label>
+        <table>
+            @{
+                foreach (Order i in Model.Orders)
+                {
+                    <tr>
+                        <td>@i.OrderID</td>
+                        <td>@i.DateReceipt</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <div>
+        <label>Владелец Лицензия Телефон</label>
+        <table>
+            @{
+                foreach (Owner i in Model.Owners)
+                {
+                    <tr>
+                        <td>@i.FioOwner</td>
+                        <td>@i.DriverLicense</td>
+                     
+                        <td>@i.Phone</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

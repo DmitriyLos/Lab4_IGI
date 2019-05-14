@@ -1,0 +1,38 @@
+﻿@using Lab4.ViewModels
+@model OwnersViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <div class="data-search">
+        @using (Html.BeginForm("Index", "Owner", FormMethod.Post))
+        {
+        <fieldset>
+            ФИО: @Html.TextBox("FioOwner", Model.OwnerViewModel.FioOwner)
+            <input type="submit" value="Найти" />
+        </fieldset>
+        }
+    </div>
+    <div>
+        Информация о владельцах
+        <table>
+            <tr>
+                <td><a asp-controller="Owner" asp-action="Index" asp-route-sortOrder="@ViewBag.FioOwnerSort">
+                    ФИО
+                </a>
+                </td>
+                <td>Телефон</td>
+            </tr>
+            @foreach (Owner p in Model.PageViewModel)
+            {
+                <tr>
+
+                    <td>@p.FioOwner</td>
+                    <td>@p.Phone</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</div>
